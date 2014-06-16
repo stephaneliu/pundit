@@ -3,7 +3,7 @@ module Pundit
     module Matchers
       extend ::RSpec::Matchers::DSL
 
-      matcher :permit do |user, record|
+      matcher :permit_authorization do |user, record|
         match_for_should do |policy|
           permissions.all? { |permission| policy.new(user, record).public_send(permission) }
         end
